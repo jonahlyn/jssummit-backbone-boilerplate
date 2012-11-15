@@ -3,10 +3,11 @@ define([
   "app",
   
   // Modules
-  "modules/test"
+  "modules/test",
+  "modules/simple"
 ],
 
-function(app, Test) {
+function(app, Test, Simple) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -14,16 +15,15 @@ function(app, Test) {
       "": "index"
     },
 
-    index: function() {
-		var layout = new Backbone.Layout({
-			el: "#main"
-		});
-		
-		layout.insertView(new Test.Views.Test());
-		
-		layout.render();
-    }
-  });
+  index: function() {
+    app.useLayout().setViews({
+      "header" : new Test.Views.Test(),
+      "main" : new Simple.Views.Layout()
+    }).render();
+  }
+
+});
+
 
   return Router;
 

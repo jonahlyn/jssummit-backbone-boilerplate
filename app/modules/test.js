@@ -20,14 +20,15 @@ function(app) {
     model: Test.Model
   });
 
-  // Default View. Fetches the test template
-  //Test.Views.Layout = Backbone.Layout.extend({
-    //template: "test"
-  //});
-  
+  // View. Fetches the test template  
   Test.Views.Test = Backbone.View.extend({
-  	template: "test"
+    template: "test"
   });
+  
+  // Default View.
+  Test.Views.Layout = Backbone.Layout.extend({
+    template: "test"
+  });  
 
   // Return the module for AMD compliance.
   return Test;
