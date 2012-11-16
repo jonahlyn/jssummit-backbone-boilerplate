@@ -61,14 +61,30 @@ function(app) {
   // Forecasts Table
   Forecast.Views.ForecastsView = Backbone.View.extend({
     template: "forecast",
+    events: {
+      "click .delete": "destroy"
+    },
     initialize: function(){
       this.collection.on("add", this.addForecast, this);
+      this.collection.on("remove", this.remove, this);
     },
     addForecast: function(model){
       var view = new Forecast.Views.ForecastItem({id: model.get("zip"), model: model});
       this.insertView('tbody', view);
       this.$('table').fadeIn('slow');
       return this;
+    },
+    remove: function(model){
+      $( "#" + model.get("zip") ).remove();
+      if ( !this.collection.length ){
+        this.$el.fadeOut('slow');
+      }
+    },
+    destroy: function(e){
+      var id = $(e.currentTarget).closest("tr").attr("id"),
+          model = this.collection.get(id);
+      
+      this.collection.remove(model);
     }
   });
   

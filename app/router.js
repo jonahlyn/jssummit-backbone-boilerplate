@@ -19,8 +19,8 @@ function(app, Test, Simple, Forecast) {
   index: function() {
     var forecasts = new Forecast.Collection();
     app.useLayout().setViews({
-      "header": new Forecast.Views.Search({collection: forecasts}),
-      "main" : new Forecast.Views.ForecastsView({collection: forecasts})
+      ".search": new Forecast.Views.Search({collection: forecasts}),
+      ".results" : new Forecast.Views.ForecastsView({collection: forecasts})
     }).render();
   }
 

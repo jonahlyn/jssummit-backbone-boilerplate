@@ -1,6 +1,9 @@
-/* H5BP styles. */
+/* H5BP styles.
 @import "../../vendor/h5bp/css/normalize.css";
 @import "../../vendor/h5bp/css/main.css";
+ */
+
+@import "../../vendor/bootstrap/css/bootstrap.min.css";
 
 /* Add Stylus stylesheets here, alll files ending in .styl will be compiled!
  * For example: @import "main.styl";
