@@ -44,25 +44,17 @@ function(app) {
     model: Forecast.Model
   });
 
-  // Default View.
-  //Forecast.Views.Layout = Backbone.Layout.extend({
-    //template: "forecast"
-  //});
-  
-  // A single forecast item
+  // View for a single forecast item
   Forecast.Views.ForecastItem = Backbone.View.extend({
     tagName: "tr",
-    template: _.template($("#forcast-template").html()),
+    template: "forecast-item",
     initialize: function(){
       _.bindAll(this, "render");
-      //this.model.on('change', this.render, this);
       this.model.fetch({success: this.render});
-      
     },
-    render: function(){
-      var content = this.template(this.model.toJSON());
-      this.$el.html(content);
-      //return this;
+    // provide data to the template
+    serialize: function() {
+      return this.model.toJSON();
     }
   });
   
