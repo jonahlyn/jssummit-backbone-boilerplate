@@ -66,7 +66,7 @@ function(app) {
     },
     initialize: function(){
       this.collection.on("add", this.addForecast, this);
-      this.collection.on("remove", this.remove, this);
+      this.collection.on("remove", this.removeForecast, this);
     },
     addForecast: function(model){
       var view = new Forecast.Views.ForecastItem({id: model.get("zip"), model: model});
@@ -74,10 +74,10 @@ function(app) {
       this.$('table').fadeIn('slow');
       return this;
     },
-    remove: function(model){
+    removeForecast: function(model){
       $( "#" + model.get("zip") ).remove();
       if ( !this.collection.length ){
-        this.$el.fadeOut('slow');
+        this.$('table').fadeOut('slow');
       }
     },
     destroy: function(e){
