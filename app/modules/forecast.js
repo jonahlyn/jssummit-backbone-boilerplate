@@ -1,7 +1,8 @@
 // Forecast module
 define([
   // Application.
-  "app"
+  "app",
+  "bootstrap/bootstrap"
 ],
 
 // Map dependencies from above array.
@@ -25,7 +26,10 @@ function(app) {
             state: observation.display_location.state_name,
             zip: observation.display_location.zip,
             city: observation.display_location.city,
-            temperature: observation.temp_f    
+            temperature: observation.temp_f,
+            wind: observation.wind_mph,
+            feelslike: observation.feelslike_f,
+            image: observation.image.url
         };
     },
     sync: function(method, model, options){  
@@ -117,6 +121,33 @@ function(app) {
     }
   });
 
+  // Forecast Detail
+  Forecast.Views.ForecastDetail = Backbone.LayoutView.extend({
+    tagName: "div",
+    template: "forecast-detail",
+    events: {
+      "click button.close": "close"
+    },
+    initialize: function(){
+      //console.log('detailvew', this);
+    },
+    // provide data to the template
+    serialize: function() {
+      return this.model.toJSON();
+    },
+    afterRender: function(){
+      this.$('.modal').modal().show();
+      this.$el.appendTo( ".detail-window" );
+      return this;
+    }, 
+    close: function(){
+      this.$('.modal').modal("hide");
+      this.$el.remove();
+      Backbone.history.navigate("/", true);
+    }
+  });
+  
+  
   // Return the module for AMD compliance.
   return Forecast;
 
