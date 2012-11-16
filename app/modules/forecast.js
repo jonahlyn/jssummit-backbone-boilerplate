@@ -86,7 +86,7 @@ function(app) {
       "click #search": "addZip"
     },
     initialize: function(){
-      //this.collection.on("add", this.clear, this);
+      this.collection.on("add", this.clear, this);
     },
     addZip: function(e){
       e.preventDefault();
