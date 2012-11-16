@@ -39,7 +39,12 @@ function(app, Test, Simple, Forecast) {
     showDetail: function(id){
       var model = this.forecasts.get(id),
           detail = new Forecast.Views.ForecastDetail({model: model});
-          
+
+      //if(typeof model == 'undefined') {
+        //model = new Forecast.Model({zip: id})
+        //this.forecasts.add(model);
+      //}
+      
       detail.render();
     }
 

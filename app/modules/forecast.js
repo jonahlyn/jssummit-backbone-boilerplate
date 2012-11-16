@@ -16,7 +16,7 @@ function(app) {
   // Default Model.
   Forecast.Model = Backbone.Model.extend({
     url: function() {
-        return "http://api.wunderground.com/api/7eaec3b21b154448/conditions/q/" + this.get("zip") + ".json";
+        return "http://api.wunderground.com/api/c69638924f9aba13/conditions/q/" + this.get("zip") + ".json";
     },
     parse : function( data, xhr ) {
         var observation = data.current_observation;
