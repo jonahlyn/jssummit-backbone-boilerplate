@@ -51,18 +51,18 @@ function(app) {
   
   // A single forecast item
   Forecast.Views.ForecastItem = Backbone.View.extend({
-    //template: "forecast-item",
     tagName: "tr",
     template: _.template($("#forcast-template").html()),
     initialize: function(){
-      //_.bindAll(this, "render");
-      this.model.fetch({success: this.render}); //
+      _.bindAll(this, "render");
+      //this.model.on('change', this.render, this);
+      this.model.fetch({success: this.render});
+      
     },
     render: function(){
       var content = this.template(this.model.toJSON());
-      console.log('content', content);
       this.$el.html(content);
-      return this;
+      //return this;
     }
   });
   
@@ -71,12 +71,10 @@ function(app) {
     template: "forecast",
     initialize: function(){
       this.collection.on("add", this.addForecast, this);
-      //this.collection.on("remove", this.remove, this);
     },
-    //render: function(model) {},
     addForecast: function(model){
       var view = new Forecast.Views.ForecastItem({id: model.get("zip"), model: model});
-      this.$("tbody").append(view.$el).fadeIn("slow");
+      this.$("tbody").append(view.$el).closest("table").fadeIn("slow");
       return this;
     }
   });
@@ -88,7 +86,7 @@ function(app) {
       "click #search": "addZip"
     },
     initialize: function(){
-      this.collection.on("add", this.clear, this);
+      //this.collection.on("add", this.clear, this);
     },
     addZip: function(e){
       e.preventDefault();
