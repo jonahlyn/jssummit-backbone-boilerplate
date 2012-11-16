@@ -66,7 +66,8 @@ function(app) {
     },
     addForecast: function(model){
       var view = new Forecast.Views.ForecastItem({id: model.get("zip"), model: model});
-      this.$("tbody").append(view.$el).closest("table").fadeIn("slow");
+      this.insertView('tbody', view);
+      this.$('table').fadeIn('slow');
       return this;
     }
   });
