@@ -1,26 +1,8 @@
-![Boilerplate](https://github.com/tbranyen/backbone-boilerplate/raw/assets/header.png)
+Backbone Demo App
+=================
 
-Backbone Boilerplate
-====================
-
-This boilerplate is the product of much research and frustration.  Existing
-boilerplates freely modify Backbone core, lack a build process, and are very
-prescriptive; Backbone Boilerplate changes that.
-
-Organize your application in a logical filesystem, develop your
-Models/Collections/Views/Routers inside modules, and build knowing you have
-efficient code that will not bottleneck your users.
-
-Thanks to our
-[Contributors](https://github.com/tbranyen/backbone-boilerplate/contributors)!
-
-Special Thanks to: [cowboy](http://github.com/cowboy),
-[iros](http://github.com/iros), [nimbupani](http://github.com/nimbupani),
-[wookiehangover](http://github.com/wookiehangover), and
-[jugglinmike](http://github.com/jugglinmike) for helping me create this project.
-
-Extra Special Thanks to: [Paul Guinan](http://bigredhair.com/work/paul.html)
-for giving me usage rights to his fantastic Boilerplate character.
+This is [Elijah Manor's Backbone.js demo](https://github.com/elijahmanor/elijahmanor.github.com/blob/master/talks/intro-to-backbonejs/demo/weather-backbone.html) from the 2012 Javascript Summing ported 
+into [Backbone Boilerplate](https://github.com/tbranyen/backbone-boilerplate).
 
 ## Documentation ##
 

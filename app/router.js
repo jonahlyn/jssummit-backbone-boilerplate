@@ -21,7 +21,7 @@ function(app, Test, Simple, Forecast) {
       // Setup the collections
       var collections = {
         forecasts: new Forecast.Collection()
-      }
+      };
       
       // Give the router a reference to the collections
       _.extend(this, collections);

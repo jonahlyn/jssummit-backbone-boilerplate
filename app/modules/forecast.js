@@ -8,8 +8,6 @@ define([
 // Map dependencies from above array.
 function(app) {
 
-  // https://github.com/elijahmanor/elijahmanor.github.com/blob/master/talks/intro-to-backbonejs/demo/weather-backbone.html
-
   // Create a new module.
   var Forecast = app.module();
 

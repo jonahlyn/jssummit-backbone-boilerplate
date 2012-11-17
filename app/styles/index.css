@@ -11,7 +11,7 @@
  * Note: All stylesheets are relative to `assets/css`.
  *
  */ 
-@import "forecast.styl"
+@import "forecast.styl";
 
 
 /* Put development-only CSS below this line. */
