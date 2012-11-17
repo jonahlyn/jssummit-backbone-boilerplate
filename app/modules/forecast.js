@@ -52,7 +52,7 @@ function(app) {
     template: "forecast-item",
     initialize: function(){
       _.bindAll(this, "render");
-      this.model.fetch({success: this.render});
+      this.model.fetch({success: this.render, error: this.fail});
     },
     // provide data to the template
     serialize: function() {
@@ -61,6 +61,9 @@ function(app) {
     afterRender: function(){
         $('tr.placeholder').remove();
         console.log('after render');
+    },
+    fail: function(){
+        console.log('failed');
     }
   });
   
