@@ -59,6 +59,10 @@ function(app) {
     // provide data to the template
     serialize: function() {
       return this.model.toJSON();
+    },
+    afterRender: function(){
+        $('tr.placeholder').remove();
+        console.log('after render');
     }
   });
   
@@ -73,6 +77,7 @@ function(app) {
       this.collection.on("remove", this.removeForecast, this);
     },
     addForecast: function(model){
+      this.$('tbody').append('<tr class="placeholder"><td colspan="7">loading...</td></tr>');
       var view = new Forecast.Views.ForecastItem({id: model.get("zip"), model: model});
       this.insertView('tbody', view);
       this.$('table').fadeIn('slow');
