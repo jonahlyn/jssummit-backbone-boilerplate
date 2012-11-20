@@ -7,7 +7,6 @@ require.config({
 
   paths: {
     // Put paths here.
-    bootstrap: '../vendor/bootstrap/js/'
   },
 
   shim: {

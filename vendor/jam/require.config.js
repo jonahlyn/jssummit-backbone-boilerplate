@@ -11,6 +11,11 @@ var jam = {
             "main": "backbone.layoutmanager.js"
         },
         {
+            "name": "bootstrap",
+            "location": "../vendor/jam/bootstrap",
+            "main": "bootstrap/js/bootstrap.min.js"
+        },
+        {
             "name": "jquery",
             "location": "../vendor/jam/jquery",
             "main": "jquery.js"
@@ -42,6 +47,11 @@ var jam = {
                 "lodash"
             ],
             "exports": "Backbone.LayoutManager"
+        },
+        "bootstrap": {
+            "deps": [
+                "jquery"
+            ]
         }
     }
 };

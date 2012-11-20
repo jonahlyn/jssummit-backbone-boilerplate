@@ -2,7 +2,7 @@
 define([
   // Application.
   "app",
-  "bootstrap/bootstrap"
+  "bootstrap"
 ],
 
 // Map dependencies from above array.
@@ -60,7 +60,6 @@ function(app) {
     },
     afterRender: function(){
         $('tr.placeholder').remove();
-        console.log('after render');
     },
     fail: function(){
         console.log('failed');

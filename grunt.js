@@ -44,7 +44,7 @@ module.exports = function(grunt) {
     styles: {
       // Out the concatenated contents of the following styles into the below
       // development file path.
-      "dist/debug/index.css": {
+      "dist/debug/debug.css": {
         // Point this to where your `index.css` file is location.
         src: "app/styles/index.css",
 
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
           "dist/debug/require.js"
         ],
 
-        dest: "dist/debug/require.js",
+        dest: "dist/debug/source.js",
 
         separator: ";"
       }
@@ -101,15 +101,15 @@ module.exports = function(grunt) {
     // also minifies all the CSS as well.  This is named index.css, because we
     // only want to load one stylesheet in index.html.
     mincss: {
-      "dist/release/index.css": [
-        "dist/debug/index.css"
+      "dist/release/styles/release.css": [
+        "dist/debug/debug.css"
       ]
     },
 
     // Takes the built require.js file and minifies it for filesize benefits.
     min: {
-      "dist/release/require.js": [
-        "dist/debug/require.js"
+      "dist/release/scripts/source.min.js": [
+        "dist/debug/source.js"
       ]
     },
 
@@ -191,36 +191,38 @@ module.exports = function(grunt) {
     // If you want to generate targeted `index.html` builds into the `dist/`
     // folders, uncomment the following configuration block and use the
     // conditionals inside `index.html`.
-    //targethtml: {
-    //  debug: {
-    //    src: "index.html",
-    //    dest: "dist/debug/index.html"
-    //  },
-    //
-    //  release: {
-    //    src: "index.html",
-    //    dest: "dist/release/index.html"
-    //  }
-    //},
+    targethtml: {
+      debug: {
+        src: "index.html",
+        dest: "dist/debug/index.html"
+      },
+    
+      release: {
+        src: "index.html",
+        dest: "dist/release/index.html"
+      }
+    },
     
     // This task will copy assets into your build directory,
     // automatically.  This makes an entirely encapsulated build into
     // each directory.
-    //copy: {
-    //  debug: {
-    //    files: {
-    //      "dist/debug/app/": "app/**",
-    //      "dist/debug/vendor/": "vendor/**"
-    //    }
-    //  },
+    copy: {
+      debug: {
+        files: {
+          //"dist/debug/app/": "app/**",
+          //"dist/debug/vendor/": "vendor/**"
+        }
+      },
 
-    //  release: {
-    //    files: {
-    //      "dist/release/app/": "app/**",
-    //      "dist/release/vendor/": "vendor/**"
-    //    }
-    //  }
-    //}
+      release: {
+        files: {
+          //"dist/release/app/": "app/**",
+          //"dist/release/vendor/": "vendor/**"
+          "dist/release/img/glyphicons-halflings.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings.png",
+          "dist/release/img/glyphicons-halflings-white.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings-white.png"
+        }
+      }
+    }
 
   });
 
@@ -229,10 +231,10 @@ module.exports = function(grunt) {
   // dist/debug/templates.js, compile all the application code into
   // dist/debug/require.js, and then concatenate the require/define shim
   // almond.js and dist/debug/templates.js into the require.js file.
-  grunt.registerTask("debug", "clean lint jst requirejs concat styles");
+  grunt.registerTask("debug", "clean lint jst requirejs concat styles targethtml:debug copy:debug");
 
   // The release task will run the debug tasks and then minify the
   // dist/debug/require.js file and CSS files.
-  grunt.registerTask("release", "debug min mincss");
+  grunt.registerTask("release", "debug min mincss targethtml:release copy:release");
 
 };

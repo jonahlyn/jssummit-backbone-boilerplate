@@ -3,12 +3,11 @@ define([
   "app",
   
   // Modules
-  "modules/test",
-  "modules/simple",
-  "modules/forecast"
+  "modules/forecast",
+  "modules/page"
 ],
 
-function(app, Test, Simple, Forecast) {
+function(app, Forecast, Page) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -28,7 +27,8 @@ function(app, Test, Simple, Forecast) {
       
       app.useLayout().setViews({
         ".search": new Forecast.Views.Search({collection: this.forecasts}),
-        ".results" : new Forecast.Views.ForecastsView({collection: this.forecasts})
+        ".results" : new Forecast.Views.ForecastsView({collection: this.forecasts}),
+        ".footer" : new Page.Views.Layout()
       }).render();
     },
     

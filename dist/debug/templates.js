@@ -46,26 +46,18 @@ __p+='<table id="output" class="table table-striped">\n    <caption>Forecast Res
 return __p;
 };
 
+this["JST"]["app/templates/page.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<div>\nWeather information provided by the Weather Underground.\n</div>';
+}
+return __p;
+};
+
 this["JST"]["app/templates/search.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
 __p+='<form id="weather" class="form-search">\n    <input type="text" id="zip" placeholder="Enter a zip code..." class="input-medium search-query">\n    <button id="search" type="submit" class="btn">Search</button>\n    <div class="alert alert-error"></div>\n</form>';
-}
-return __p;
-};
-
-this["JST"]["app/templates/simple.html"] = function(obj){
-var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
-with(obj||{}){
-__p+='this is simple. not!';
-}
-return __p;
-};
-
-this["JST"]["app/templates/test.html"] = function(obj){
-var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
-with(obj||{}){
-__p+='<span>something</span>';
 }
 return __p;
 };
