@@ -10,5 +10,3 @@ View the Backbone Boilerplate documentation here:
 
 [GitHub Wiki](https://github.com/tbranyen/backbone-boilerplate/wiki)
 
-## Notes ##
-
