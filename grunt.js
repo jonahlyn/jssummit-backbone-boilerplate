@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     // The concat task depends on this file to exist, so if you decide to
     // remove this, ensure concat is updated accordingly.
     jst: {
-      "dist/debug/templates.js": [
+      "dist/debug/scripts/templates.js": [
         "app/templates/**/*.html"
       ]
     },
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
     styles: {
       // Out the concatenated contents of the following styles into the below
       // development file path.
-      "dist/debug/debug.css": {
+      "dist/debug/styles/debug.css": {
         // Point this to where your `index.css` file is location.
         src: "app/styles/index.css",
 
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
       jamConfig: "/vendor/jam/require.config.js",
 
       // Output file.
-      out: "dist/debug/require.js",
+      out: "dist/debug/scripts/require.js",
 
       // Root application module.
       name: "config",
@@ -86,11 +86,11 @@ module.exports = function(grunt) {
       dist: {
         src: [
           "vendor/js/libs/almond.js",
-          "dist/debug/templates.js",
-          "dist/debug/require.js"
+          "dist/debug/scripts/templates.js",
+          "dist/debug/scripts/require.js"
         ],
 
-        dest: "dist/debug/source.js",
+        dest: "dist/debug/scripts/source.js",
 
         separator: ";"
       }
@@ -102,14 +102,14 @@ module.exports = function(grunt) {
     // only want to load one stylesheet in index.html.
     mincss: {
       "dist/release/styles/release.css": [
-        "dist/debug/debug.css"
+        "dist/debug/styles/debug.css"
       ]
     },
 
     // Takes the built require.js file and minifies it for filesize benefits.
     min: {
       "dist/release/scripts/source.min.js": [
-        "dist/debug/source.js"
+        "dist/debug/scripts/source.js"
       ]
     },
 
@@ -210,7 +210,10 @@ module.exports = function(grunt) {
       debug: {
         files: {
           //"dist/debug/app/": "app/**",
-          //"dist/debug/vendor/": "vendor/**"
+          //"dist/debug/vendor/": "vendor/**",
+          "dist/debug/img/glyphicons-halflings.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings.png",
+          "dist/debug/img/glyphicons-halflings-white.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings-white.png",
+          "dist/debug/favicon.ico": "favicon.ico"
         }
       },
 
