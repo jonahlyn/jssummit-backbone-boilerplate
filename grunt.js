@@ -219,7 +219,8 @@ module.exports = function(grunt) {
           //"dist/release/app/": "app/**",
           //"dist/release/vendor/": "vendor/**"
           "dist/release/img/glyphicons-halflings.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings.png",
-          "dist/release/img/glyphicons-halflings-white.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings-white.png"
+          "dist/release/img/glyphicons-halflings-white.png": "vendor/jam/bootstrap/bootstrap/img/glyphicons-halflings-white.png",
+          "dist/release/favicon.ico": "favicon.ico"
         }
       }
     }
